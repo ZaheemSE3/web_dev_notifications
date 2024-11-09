@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web App</title>
+    <!-- OneSignal SDK -->
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+    <script>
+        window.OneSignal = window.OneSignal || [];
+        OneSignal.push(function() {
+            OneSignal.init({
+                appId: "YOUR_ONESIGNAL_APP_ID", // Replace with your OneSignal App ID
+                notifyButton: {
+                    enable: true,
+                },
+            });
+        });
+
+        // Function to send a notification
+        function sendNotification() {
+            OneSignal.push(function() {
+                OneSignal.sendSelfNotification(
+                    "Hi, this is Zaheem", // Notification title
+                    "This is a custom notification from my website.", // Notification message
+                    'https://yourwebsite.com', // URL to open when clicked (replace with your site)
+                    'https://example.com/icon.png', // Icon (optional)
+                    {
+                        action: "open-url",
+                        url: "https://yourwebsite.com" // URL for notification action
+                    }
+                );
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome to My Web App</h1>
+    <p>This is a simple webpage to test OneSignal notifications.</p>
+    <button onclick="sendNotification()">Send Notification</button>
+</body>
+</html>
