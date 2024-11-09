@@ -10,9 +10,9 @@
         window.OneSignal = window.OneSignal || [];
         OneSignal.push(function() {
             OneSignal.init({
-                appId: "fb9c4922-4857-4bb9-85f0-3e96b92023fd", // Replace with your OneSignal App ID
+                appId: "fb9c4922-4857-4bb9-85f0-3e96b92023fd", // Replace with your actual OneSignal App ID
                 notifyButton: {
-                    enable: true,
+                    enable: true, // This shows the OneSignal notification subscription button
                 },
             });
         }); 
@@ -23,11 +23,11 @@
                 OneSignal.sendSelfNotification(
                     "Hi, this is Zaheem", // Notification title
                     "This is a custom notification from my website.", // Notification message
-                    'https://yourwebsite.com', // URL to open when clicked (replace with your site)
-                    'https://example.com/icon.png', // Icon (optional)
+                    'https://zaheemse3.github.io/web_dev_notifications', // URL to open when clicked
+                    'https://example.com/icon.png', // Icon URL (optional)
                     {
                         action: "open-url",
-                        url: "https://yourwebsite.com" // URL for notification action
+                        url: "https://zaheemse3.github.io/web_dev_notifications" // URL for notification action
                     }
                 );
             });
