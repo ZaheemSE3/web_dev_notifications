@@ -10,24 +10,31 @@
         window.OneSignal = window.OneSignal || [];
         OneSignal.push(function() {
             OneSignal.init({
-                appId: "fb9c4922-4857-4bb9-85f0-3e96b92023fd", // Replace with your actual OneSignal App ID
+                appId: "fb9c4922-4857-4bb9-85f0-3e96b92023fd",
                 notifyButton: {
-                    enable: true, // This shows the OneSignal notification subscription button
+                    enable: true,
                 },
             });
         }); 
+
+        // Function to trigger OneSignal's native prompt
+        function triggerSubscription() {
+            OneSignal.push(function() {
+                OneSignal.showNativePrompt();
+            });
+        }
 
         // Function to send a notification
         function sendNotification() {
             OneSignal.push(function() {
                 OneSignal.sendSelfNotification(
-                    "Hi, this is Zaheem", // Notification title
-                    "This is a custom notification from my website.", // Notification message
-                    'https://zaheemse3.github.io/web_dev_notifications', // URL to open when clicked
-                    'https://example.com/icon.png', // Icon URL (optional)
+                    "Hi, this is Zaheem",
+                    "This is a custom notification from my website.",
+                    'https://zaheemse3.github.io/web_dev_notifications',
+                    'https://example.com/icon.png',
                     {
                         action: "open-url",
-                        url: "https://zaheemse3.github.io/web_dev_notifications" // URL for notification action
+                        url: "https://zaheemse3.github.io/web_dev_notifications"
                     }
                 );
             });
@@ -37,6 +44,7 @@
 <body>
     <h1>Welcome to My Web App</h1>
     <p>This is a simple webpage to test OneSignal notifications.</p>
+    <button onclick="triggerSubscription()">Subscribe to Notifications</button>
     <button onclick="sendNotification()">Send Notification</button>
 </body>
 </html>
